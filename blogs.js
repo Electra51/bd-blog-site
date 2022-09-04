@@ -44,13 +44,11 @@ const loadCategory1 = async (catagory) => {
     displayCategory1 (data.data);
 }
 const displayCategory1 = datas => {
-
   
-
   const display = document.getElementById('search')
 display.innerHTML = `
 
-  <input type="text" class="form-control mt-1" placeholder="${datas.length} information show" aria-label="Username" aria-describedby="basic-addon1">
+  <input type="text" class="form-control mt-1" placeholder="${datas.length} Information Show" aria-label="Username" aria-describedby="basic-addon1">
   
 `
 const noPhone = document.getElementById('no-found-message');
@@ -64,8 +62,16 @@ else{
   const divContainer = document.getElementById('news-card');
   divContainer.innerHTML = ``;
 
+  datas.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
+  console.log(datas)
   for (const _id of datas) {
-        console.log(_id);
+
+    
+
+  
+         console.log(_id);
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `<div class="card ">
@@ -89,8 +95,8 @@ else{
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <img src="${_id.thumbnail_url}" class="card-img-top" alt="...">
-      <p class="card-text">${_id.details}</p>
+      <img src="${_id.thumbnail_url}" class="" alt="...">
+      <p class="">${_id.details}</p>
       <p><strong>Author Name:</strong> ${_id.author.name}</p>
       <p><strong>Published_date:</strong> ${_id.author.published_date}</p>
       </div>
