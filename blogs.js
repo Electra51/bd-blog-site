@@ -72,7 +72,7 @@ else{
         <img src="${_id.thumbnail_url}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${_id.title}</h5>
-          <p class="card-text">${_id.details}</p>
+          <p class="card-text" >${_id.details }</p>
           
           <div class="d-flex">
           <img src="${_id.author.img}"alt="" width="30" height="29" class="d-inline-block align-text-top">
@@ -91,6 +91,8 @@ else{
       <div class="modal-body">
       <img src="${_id.thumbnail_url}" class="card-img-top" alt="...">
       <p class="card-text">${_id.details}</p>
+      <p><strong>Author Name:</strong> ${_id.author.name}</p>
+      <p><strong>Published_date:</strong> ${_id.author.published_date}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
