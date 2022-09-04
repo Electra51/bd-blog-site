@@ -1,7 +1,18 @@
-const loadCatagories = async() => {
+
+try {
+  alert("Welcome Everybody");
+}
+catch {
+  alert("inside catch block");
+}
+
+
+
+const loadCatagories = async () => {
     const response = await fetch("https://openapi.programming-hero.com/api/news/categories");
     const data = await response.json();
-    displayCatagories(data.data.news_category);
+  displayCatagories(data.data.news_category)
+  
 }
 const displayCatagories = category => {
   // console.log(category[0].category_name)
@@ -26,6 +37,7 @@ const displayCatagories = category => {
   loadCatagories();
 
 const loadCategory1 = async (catagory) => {
+
   toggleSpinner(true);
     const response = await fetch(`https://openapi.programming-hero.com/api/news/category/0${catagory}`);
     const data = await response.json();
@@ -33,12 +45,22 @@ const loadCategory1 = async (catagory) => {
 }
 const displayCategory1 = datas => {
 
+  
+
   const display = document.getElementById('search')
 display.innerHTML = `
 
   <input type="text" class="form-control mt-1" placeholder="${datas.length} information show" aria-label="Username" aria-describedby="basic-addon1">
-`
   
+`
+const noPhone = document.getElementById('no-found-message');
+if(datas.length === 0){
+    noPhone.classList.remove('d-none');
+}
+else{
+    noPhone.classList.add('d-none');
+}
+
   const divContainer = document.getElementById('news-card');
   divContainer.innerHTML = ``;
 
